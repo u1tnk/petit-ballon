@@ -1,0 +1,35 @@
+/*
+#overview
+スタイルガイド
+*/
+
+/*#styleguide
+サンプル見出し1
+
+サンプルの見出しスタイル
+hoverすると青く2倍になる
+
+```
+<h1>見出し1</h1>
+```
+*/
+h1 {
+    color: red;
+    transition: 200ms ease-out transform;
+    &:hover {
+        color: blue;
+        transform: translate(10px, 0);
+    }
+}
+
+/*#styleguide
+見出し2
+
+見出し2サンプル
+```
+<h2>見出し2</h2>
+```
+*/
+h2 {
+    color: yellow;
+}
