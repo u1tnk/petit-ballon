@@ -8,11 +8,12 @@ import uglify from "gulp-uglify";
 import browser from "browser-sync";
 import plumber from "gulp-plumber";
 import browserify from "browserify";
+import babelify from "babelify";
 import source from "vinyl-source-stream";
 
 import handleErrors from "./handle-errors.js";
 
-gulp.task("sass", function(){
+gulp.task("sass", () => {
     gulp.src("sass/**/*.scss")
         .pipe(plumber())
         .pipe(frontnote({css: '../css/style.css'}))
@@ -22,8 +23,9 @@ gulp.task("sass", function(){
         .pipe(browser.reload({stream:true}));
 });
 
-gulp.task("js", function() {
+gulp.task("js", () => {
     browserify({entries: ["./js.dev/index.js"]})
+        .transform(babelify)
         .bundle()
         .on('error', handleErrors)
         .pipe(source('bundle.js'))
@@ -31,7 +33,7 @@ gulp.task("js", function() {
         .pipe(browser.reload({stream:true}));
 });
 
-// gulp.task("js", function() {
+// gulp.task("js", => {
 //     gulp.src(["js.dev/**/*.js"])
 //         .pipe(plumber())
 //         .pipe(uglify())
@@ -39,7 +41,7 @@ gulp.task("js", function() {
 //         .pipe(browser.reload({stream:true}));
 // });
 
-gulp.task("server", function() {
+gulp.task("server", () => {
     browser({
         server: {
             baseDir: "./"
@@ -47,7 +49,7 @@ gulp.task("server", function() {
     });
 });
 
-gulp.task("default", ['server'], function() {
+gulp.task("default", ['server'], () => {
     gulp.watch(["js.dev/**/*.js"],["js"]);
     gulp.watch("sass/**/*.scss",["sass"]);
 });
