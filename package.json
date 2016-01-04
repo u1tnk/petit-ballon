@@ -18,10 +18,10 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-babel": "^6.1.1",
     "gulp-frontnote": "^1.0.2",
+    "gulp-haml": "^0.1.6",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.0.1",
     "gulp-sass": "^2.1.1",
-    "gulp-uglify": "^1.5.1",
     "vinyl-source-stream": "^1.1.0"
   },
   "babel": {

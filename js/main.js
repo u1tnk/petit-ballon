@@ -1,5 +1,5 @@
 (() => {
     window.addEventListener('load', () => {
-        console.log('babel loaded!')
+        console.log('babeelllllll loaded!')
    });
 })();
