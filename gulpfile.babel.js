@@ -1,6 +1,7 @@
 'use strict'
 
 import gulp from 'gulp';
+import fs from 'fs'
 import sass from "gulp-sass";
 import haml from "gulp-haml";
 import autoprefixer from "gulp-autoprefixer";
@@ -11,6 +12,9 @@ import browserify from "browserify";
 import babelify from "babelify";
 import source from "vinyl-source-stream";
 import image from "gulp-image"
+
+var config = JSON.parse(fs.readFileSync('/Users/yuichi/.aws/u1tnk_s3.json'));
+var s3 = require('gulp-s3-upload')(config)
 
 import handleErrors from "./handle-errors.js";
 
@@ -38,7 +42,6 @@ gulp.task("haml", () =>{
         .pipe(plumber())
         .pipe(haml({pretty: true}))
         .pipe(gulp.dest("./publish/"));
-
 });
 
 gulp.task('image', () => {
@@ -69,10 +72,20 @@ gulp.task("server", () => {
     });
 });
 
-gulp.task("default", ['server'], () => {
+gulp.task("build", ['sass', 'js', 'image', 'haml'])
+
+gulp.task("develop", ['server'], () => {
     gulp.watch("js/**/*.js", ["js", "reload"]);
     gulp.watch("sass/**/*.scss", ["sass"]);
     gulp.watch("haml/**/*.haml", ["haml", "reload"]);
     gulp.watch('./images/**/*.+(jpg|jpeg|JPG|png|PNG|gif|GIF)', ["image", "reload"]);
 });
 
+gulp.task("deploy-staging", ['build'], function() {
+  gulp.src(["./publish/**", "!./publish/**/.DS_Store"])
+    .pipe(s3({
+      Bucket: 'petit-ballon-staging',
+      ACL: 'public-read',
+    }))
+  ;
+});
