@@ -1,20 +1,30 @@
 'use strict'
 
 import gulp from 'gulp';
+// file system node標準ぽい
 import fs from 'fs'
 import sass from "gulp-sass";
 import haml from "gulp-haml";
+// cssにvendor prefix をつける
 import autoprefixer from "gulp-autoprefixer";
+// css のスタイルガイドを作成、一人作業にはオーバースペック感
 import frontnote from "gulp-frontnote";
+// livereload 等
 import browser from "browser-sync";
+// 処理中にエラー出ても watcheを止めない
 import plumber from "gulp-plumber";
 import browserify from "browserify";
+// browerify用babel
 import babelify from "babelify";
+// browserify がgulp.srcが使えないので生のstreamを取る用
 import source from "vinyl-source-stream";
+// 画像の最適化
 import image from "gulp-image"
 
 var config = JSON.parse(fs.readFileSync('/Users/yuichi/.aws/u1tnk_s3.json'));
-var s3 = require('gulp-s3-upload')(config)
+// require('hoge')(args)が書けないようなので
+import s3module from 'gulp-s3-upload'
+var s3 = s3module(config)
 
 import handleErrors from "./handle-errors.js";
 
@@ -37,7 +47,7 @@ gulp.task("js", () => {
         .pipe(gulp.dest("./publish/js"));
 });
 
-gulp.task("haml", () =>{
+gulp.task("haml", () => {
     gulp.src("haml/**/*.haml")
         .pipe(plumber())
         .pipe(haml({pretty: true}))
@@ -82,7 +92,7 @@ gulp.task("develop", ['server'], () => {
 });
 
 gulp.task("deploy-staging", ['build'], function() {
-  gulp.src(["./publish/**", "!./publish/**/.DS_Store"])
+  gulp.src(["./publish/**", "!./publish/**/.*"])
     .pipe(s3({
       Bucket: 'petit-ballon-staging',
       ACL: 'public-read',
