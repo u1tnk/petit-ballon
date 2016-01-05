@@ -10,6 +10,7 @@ import plumber from "gulp-plumber";
 import browserify from "browserify";
 import babelify from "babelify";
 import source from "vinyl-source-stream";
+import image from "gulp-image"
 
 import handleErrors from "./handle-errors.js";
 
@@ -40,6 +41,22 @@ gulp.task("haml", () =>{
 
 });
 
+gulp.task('image', () => {
+    gulp.src('./images/**/*.+(jpg|jpeg|JPG|png|PNG|gif|GIF)')
+        .pipe(plumber())
+        .pipe(image({
+            pngquant: true,
+            optipng: false,
+            zopflipng: true,
+            advpng: true,
+            jpegRecompress: false,
+            jpegoptim: true,
+            gifsicle: true,
+            mozjpeg: true,
+        }))
+        .pipe(gulp.dest('./publish/images'));
+});
+
 gulp.task("reload", () =>{
     browser.reload()
 });
@@ -56,5 +73,6 @@ gulp.task("default", ['server'], () => {
     gulp.watch("js/**/*.js", ["js", "reload"]);
     gulp.watch("sass/**/*.scss", ["sass"]);
     gulp.watch("haml/**/*.haml", ["haml", "reload"]);
+    gulp.watch('./images/**/*.+(jpg|jpeg|JPG|png|PNG|gif|GIF)', ["image", "reload"]);
 });
 

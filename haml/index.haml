@@ -1,11 +1,180 @@
-!!! 5
-%head
-  %title
-    test
-  %meta{charset: "UTF-8"}
-  %meta{name: "viewport", content: "width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"}
-  %link{rel: "stylesheet", href: "css/style.css"}
-  %script{src: "js/bundle.js"}
-%body
-  %h1 Hello!
-    fafafa
+!!!
+%html{lang: "ja"}
+  %head
+
+    %meta{charset: "UTF-8"}/
+    %title petit ballon - top
+    %link{href: "https://fonts.googleapis.com/css?family=Lora", rel: "stylesheet"}/
+    %link{href: "css/reset.css", rel: "stylesheet"}/
+    %link{href: "css/style.css", rel: "stylesheet"}/
+  %body
+    %header.header
+      %h1.logo
+        %a{href: "/"} petit ballon
+      %nav.global-nav
+        %ul
+          %li.nav-item.active
+            %a{href: "#"} HOME
+          %li.nav-item
+            %a{href: "#"} ABOUT
+          %li.nav-item
+            %a{href: "#"} NEWS
+          %li.nav-item
+            %a{href: "#"} TOPICS
+          %li.nav-item
+            %a{href: "#"} DOCS
+          %li.nav-item
+            %a{href: "#"} BLOG
+    .wrapper.clearfix
+      %main.main
+        %h2.hidden HOT TOPIC
+        %a.hot-topic.clearfix{href: "#"}
+          %img.image{alt: "コーディング画面", src: "./images/top-ballon.jpg"}/
+          .content
+            %h3.title
+              小さな気球はゆっくり飛び立つ
+            %p.desc
+              青い空に浮かぶ真っ白な雲を目指して
+              小さな気球の想いはあつく、たかく、高く、遠くまで、、
+              さぁ旅のはじまり。。。。
+
+        %h2.heading NEWS
+        %ul.scroll-list
+          %li.scroll-item
+            %a{href: "#"}
+              %time.date{datetime: "2015-08-23"} 2015.08.23 SUN
+              %span.category.news NEWS
+              %span.title WORKSを更新しました。
+          %li.scroll-item
+            %a{href: "#"}
+              %time.date{datetime: "2015-08-12"} 2015.08.12 WED
+              %span.category TOPIC
+              %span.title CSSでここまでできる！？ホントに使えるCSSセレクタ10選！
+          %li.scroll-item
+            %a{href: "#"}
+              %time.date{datetime: "2015-08-04"} 2015.08.04 TUE
+              %span.category.news NEWS
+              %span.title TOPICSを更新しました。
+          %li.scroll-item
+            %a{href: "#"}
+              %time.date{datetime: "2015-07-25"} 2015.07.25 SAT
+              %span.category TOPIC
+              %span.title HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう
+          %li.scroll-item
+            %a{href: "#"}
+              %time.date{datetime: "2015-07-09"} 2015.07.09 THU
+              %span.category TOPIC
+              %span.title HTML5の新しい属性で手軽にフォームバリデーション
+          %li.scroll-item
+            %a{href: "#"}
+              %time.date{datetime: "2015-06-30"} 2015.06.30 TUE
+              %span.category.news NEWS
+              %span.title WORKSを更新しました。
+        %h2.hidden ARTICLES
+        .clearfix
+          %a.article-box{href: "#"}
+            %h3.title 実務で使えるHTML/CSSモダンコーディングTIPS
+            %p.desc 新しい要素が増えて大幅に表現力が広がったHTML5/CSS3を活用し、モダンなコーディングにチャレンジしましょう！
+            %time.date{datetime: "2015-06-17"} 2015.06.17 WED
+            %img.image{alt: "コーディング画面", src: "./images/article.jpg"}/
+          %a.article-box{href: "#"}
+            %h3.title 実務で使えるHTML/CSSモダンコーディングTIPS
+            %p.desc 新しい要素が増えて大幅に表現力が広がったHTML5/CSS3を活用し、モダンなコーディングにチャレンジしましょう！
+            %time.date{datetime: "2015-06-17"} 2015.06.17 WED
+            %img.image{alt: "コーディング画面", src: "./images/article.jpg"}/
+          %a.article-box{href: "#"}
+            %h3.title 実務で使えるHTML/CSSモダンコーディングTIPS
+            %p.desc 新しい要素が増えて大幅に表現力が広がったHTML5/CSS3を活用し、モダンなコーディングにチャレンジしましょう！
+            %time.date{datetime: "2015-06-17"} 2015.06.17 WED
+            %img.image{alt: "コーディング画面", src: "./images/article.jpg"}/
+          %a.article-box{href: "#"}
+            %h3.title 実務で使えるHTML/CSSモダンコーディングTIPS
+            %p.desc 新しい要素が増えて大幅に表現力が広がったHTML5/CSS3を活用し、モダンなコーディングにチャレンジしましょう！
+            %time.date{datetime: "2015-06-17"} 2015.06.17 WED
+            %img.image{alt: "コーディング画面", src: "./images/article.jpg"}/
+      .sidemenu
+        %h2.heading RANKING
+        %ol.ranking
+          %li.ranking-item
+            %a{href: "#"}
+              %img.image{alt: "グラフの画像", src: "./images/ranking.jpg"}/
+              %span.order
+              %p.text HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう
+          %li.ranking-item
+            %a{href: "#"}
+              %img.image{alt: "グラフの画像", src: "./images/ranking.jpg"}/
+              %span.order
+              %p.text HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう
+          %li.ranking-item
+            %a{href: "#"}
+              %img.image{alt: "グラフの画像", src: "./images/ranking.jpg"}/
+              %span.order
+              %p.text HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう
+          %li.ranking-item
+            %a{href: "#"}
+              %img.image{alt: "グラフの画像", src: "./images/ranking.jpg"}/
+              %span.order
+              %p.text HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう
+          %li.ranking-item
+            %a{href: "#"}
+              %img.image{alt: "グラフの画像", src: "./images/ranking.jpg"}/
+              %span.order
+              %p.text HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう
+          %li.ranking-item
+            %a{href: "#"}
+              %img.image{alt: "グラフの画像", src: "./images/ranking.jpg"}/
+              %span.order
+              %p.text HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう
+          %li.ranking-item
+            %a{href: "#"}
+              %img.image{alt: "グラフの画像", src: "./images/ranking.jpg"}/
+              %span.order
+              %p.text HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう
+        %h2.heading DOCUMENTS
+        %ul.documents
+          %li
+            %h3.title HTML5
+            %ul
+              %li
+                %a{href: "#"} 追加された要素
+              %li
+                %a{href: "#"} 削除された要素
+              %li
+                %a{href: "#"} 意味が変わった要素
+              %li
+                %a{href: "#"} HTML5のコンテンツモデル
+          %li
+            %h3.title CSS3
+            %ul
+              %li
+                %a{href: "#"} 追加されたプロパティ
+              %li
+                %a{href: "#"} 追加されたセレクタ
+              %li
+                %a{href: "#"} 追加された単位
+          %li
+            %h3.title JavaScript
+            %ul
+              %li
+                %a{href: "#"} JavaScriptの言語仕様
+              %li
+                %a{href: "#"} ECMAScriptとは？
+              %li
+                %a{href: "#"} jQueryとは？
+          %li
+            %h3.title Sass, Less, Stylus
+            %p 準備中
+          %li
+            %h3.title TypeScript
+            %p 準備中
+    %footer.footer
+      %ul.horizontal-list
+        %li.horizontal-item
+          %a{href: "#"} ABOUT ME
+        %li.horizontal-item
+          %a{href: "#"} SITE MAP
+        %li.horizontal-item
+          %a{href: "#"} SNS
+        %li.horizontal-item
+          %a{href: "#"} CONTACT
+      %p.copyright Copyright © 2015 petit ballon
