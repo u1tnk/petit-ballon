@@ -11,7 +11,7 @@ import autoprefixer from "gulp-autoprefixer";
 import frontnote from "gulp-frontnote";
 // livereload 等
 import browser from "browser-sync";
-// 処理中にエラー出ても watcheを止めない
+// 処理中にエラー出ても watchを止めない
 import plumber from "gulp-plumber";
 import browserify from "browserify";
 // browerify用babel
@@ -21,10 +21,10 @@ import source from "vinyl-source-stream";
 // 画像の最適化
 import image from "gulp-image"
 
-var config = JSON.parse(fs.readFileSync('/Users/yuichi/.aws/u1tnk_s3.json'));
+let config = JSON.parse(fs.readFileSync('/Users/yuichi/.aws/u1tnk_s3.json'));
 // require('hoge')(args)が書けないようなので
 import s3module from 'gulp-s3-upload'
-var s3 = s3module(config)
+let s3 = s3module(config)
 
 import handleErrors from "./handle-errors.js";
 
