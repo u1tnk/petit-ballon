@@ -94,7 +94,16 @@ gulp.task("develop", ['server'], () => {
 gulp.task("deploy-staging", ['build'], function() {
   gulp.src(["./publish/**", "!./publish/**/.*"])
     .pipe(s3({
-      Bucket: 'petit-ballon-staging',
+      Bucket: 'staging.petit-ballon.com', // ドットが入ってるので自動で上がらない…
+      ACL: 'public-read',
+    }))
+  ;
+});
+
+gulp.task("deploy", ['build'], function() {
+  gulp.src(["./publish/**", "!./publish/**/.*"])
+    .pipe(s3({
+       Bucket: 'petit-ballon.com', // ドットが入ってるので自動で上がらない
       ACL: 'public-read',
     }))
   ;

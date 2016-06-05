@@ -2,117 +2,58 @@
 %html{lang: "ja"}
   %head
     %meta{charset: "UTF-8"}/
-    %meta{content: "width=device-width,initial-scale=1.0,minimum-scale=1.0", name: "viewport"}/
-    %title シングルページレイアウト
+    %meta{content: "width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no", name: "viewport"}/
+    %title petit baloon
     %link{href: "http://fonts.googleapis.com/css?family=Raleway:700,400", rel: "stylesheet"}/
     %link{href: "http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", rel: "stylesheet"}/
     %link{href: "css/normalize.css", rel: "stylesheet"}/
+
+
     %link{href: "css/style.css", rel: "stylesheet"}/
   %body
-    %header.header
-      %p.site-title-sub Web designer's portfolio
-      %h1.site-title HI, MY NAME IS...
-      %p.site-description Check out some of my works.
-      .buttons
-        %a.button{href: "#about"} LEARN MORE
-        %a.button.button-showy{href: "#contact"} SEND MESSAGE
-    %section#about.about
-      %h2.heading ABOUT ME
-      %p.about-text
-        はじめまして。日本でWebデザイナーをしています。
-        %br/
-        デザインの専門学校を卒業し、制作会社での業務経験を経て、現在はフリーランスとして働いています。
-      %p.about-text
-        このサイトは「HTML/CSS モダンコーディング」という書籍のサンプルとして作られた、架空のWebデザイナーのポートフォリオサイトです。
-        %br/
-        このサンプルのようなサイトをいちから作る過程を通して、HTMLとCSSの実践的なコーディングノウハウを学ぶことができます。
-    %section.works
-      %h2.heading WORKS
-      .works-wrapper
-        .work-box.tree
-          %img.work-image{alt: "制作事例1", src: "images/tree.jpg"}/
-          .work-description
-            .work-description-inner
-              %p.work-text
-                ひとつめの制作事例が入ります。
-                %br/
-                簡単な説明が入ります。
-                %br/
-                使用ツール：XXX, XXX, XXX
-                %br/
-                %a.button.button-ghost{href: "#"} READ MORE
-        .work-box.building
-          %img.work-image{alt: "制作事例2", src: "images/building.jpg"}/
-          .work-description
-            .work-description-inner
-              %p.work-text
-                ふたつめの制作事例が入ります。
-                %br/
-                簡単な説明が入ります。
-                %br/
-                使用ツール：XXX, XXX, XXX
-                %br/
-                %a.button.button-ghost{href: "#"} READ MORE
-        .work-box.lake
-          %img.work-image{alt: "制作事例3", src: "images/lake.jpg"}/
-          .work-description
-            .work-description-inner
-              %p.work-text
-                みっつめの制作事例が入ります。
-                %br/
-                簡単な説明が入ります。
-                %br/
-                使用ツール：XXX, XXX, XXX
-                %br/
-                %a.button.button-ghost{href: "#"} READ MORE
-        .work-box.sky
-          %img.work-image{alt: "制作事例4", src: "images/sky.jpg"}/
-          .work-description
-            .work-description-inner
-              %p.work-text
-                よっつめの制作事例が入ります。
-                %br/
-                簡単な説明が入ります。
-                %br/
-                使用ツール：XXX, XXX, XXX
-                %br/
-                %a.button.button-ghost{href: "#"} READ MORE
-    %section.skills
-      %h2.heading MY SKILLS
-      .skills-wrapper
-        .skill-box
-          %i.skill-icon.fa.fa-lightbulb-o
-          .skill-title IDEA
-          %p.skill-text
-            何かを考えることが好きです。
-            %br/
-            新しいことを思いついては試しています。
-            %br/
-            ディレクションの経験もあります。
-        .skill-box
-          %i.skill-icon.fa.fa-paint-brush
-          .skill-title DESIGN
-          %p.skill-text
-            見た目の綺麗さだけじゃなくて、
-            %br/
-            使いやすさ、情報の伝わりやすさなど、
-            %br/
-            その先まで考えることを意識しています。
-        .skill-box
-          %i.skill-icon.fa.fa-code
-          .skill-title CODING
-          %p.skill-text
-            HTML/CSSコーディングも行います。
-            %br/
-            正しく美しいマークアップと、
-            %br/
-            今後の変更への強さを考慮しています。
-    %section#contact.contact
-      %h2.heading CONTACT
-      %form.contact-form
-        %input{name: "name", placeholder: "NAME", type: "text"}/
-        %textarea{name: "message", placeholder: "MESSAGE"}
-        %input{type: "submit", value: "SEND"}/
-    %footer.footer
-      © sample site
+    .container
+      %header.header
+        %h1.site-title petit baloon
+      %section#news.news
+        %h2.heading NEWS
+        %ul.news-list
+          %li
+            2016.4.6〜8  EXPO出店
+          %li
+            2015.11.1 petit ballon ブランドスタート
+      %section.items
+        %h2.heading items
+        .items-wrapper
+          .item-box
+            %img.item-image{alt: "lecrin", src: "images/lecrin.jpg"}/
+            .item-description
+              .item-description-inner
+                %p.item-text
+                  lecrin
+          .item-box
+            %img.item-image{alt: "papillon", src: "images/papillon.jpg"}/
+            .item-description
+              .item-description-inner
+                %p.item-text
+                  papillon
+          .item-box
+            %img.item-image{alt: "biscuit", src: "images/biscuit.jpg"}/
+            .item-description
+              .item-description-inner
+                %p.item-text
+                  biscuit
+          .item-box
+            %img.item-image{alt: "carton", src: "images/carton.jpg"}/
+            .item-description
+              .item-description-inner
+                %p.item-text
+                  carton
+          .item-box
+            %img.item-image{alt: "coussin", src: "images/coussin.jpg"}/
+            .item-description
+              .item-description-inner
+                %p.item-text
+                  coussin
+      %footer.footer
+        ©petit baloon
     %script{src: "lib/placeholders.min.js"}
