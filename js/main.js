@@ -1,5 +1,12 @@
+import $ from 'jquery'
+global.jQuery = $
+import slick from 'slick-carousel-browserify'
 (() => {
     window.addEventListener('load', () => {
-        console.log('babel loaded!')
+        $('.detail-carousel').show()
+        slick($('.detail-carousel'), {
+            dots: true,
+            arrows: true,
+        })
    });
 })();

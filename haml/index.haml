@@ -7,9 +7,10 @@
     %link{href: "http://fonts.googleapis.com/css?family=Raleway:700,400", rel: "stylesheet"}/
     %link{href: "http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css", rel: "stylesheet"}/
     %link{href: "css/normalize.css", rel: "stylesheet"}/
-
-
     %link{href: "css/style.css", rel: "stylesheet"}/
+    %link{href: "css/slick.css", rel: "stylesheet"}/
+    %link{href: "css/slick-theme.css", rel: "stylesheet"}/
+    %script{src: "js/bundle.js"}/
   %body
     .container
       %header.header
@@ -25,11 +26,12 @@
         %h2.heading items
         .items-wrapper
           .item-box
-            %img.item-image{alt: "lecrin", src: "images/lecrin.jpg"}/
-            .item-description
-              .item-description-inner
-                %p.item-text
-                  lecrin
+            %a{href: "lecrin.html"}
+              %img.item-image{alt: "lecrin", src: "images/lecrin.jpg"}/
+              .item-description
+                .item-description-inner
+                  %p.item-text
+                    lecrin
           .item-box
             %img.item-image{alt: "papillon", src: "images/papillon.jpg"}/
             .item-description
@@ -56,4 +58,3 @@
                   coussin
       %footer.footer
         ©petit baloon
-    %script{src: "lib/placeholders.min.js"}

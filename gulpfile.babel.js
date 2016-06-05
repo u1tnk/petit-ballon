@@ -28,7 +28,7 @@ import awspublish from 'gulp-awspublish'
 import handleErrors from "./handle-errors.js";
 
 gulp.task("sass", () => {
-    gulp.src("sass/**/*.scss")
+    gulp.src(["sass/**/*.scss", "node_modules/slick-carousel-browserify/slick/*.scss"])
         .pipe(plumber())
         .pipe(frontnote({css: '../css/style.css'}))
         .pipe(sass())
@@ -51,6 +51,13 @@ gulp.task("haml", () => {
         .pipe(plumber())
         .pipe(haml({pretty: true}))
         .pipe(gulp.dest("./publish/"));
+});
+
+gulp.task('slick', () => {
+    let top = "node_modules/slick-carousel-browserify/slick"
+    gulp.src([top + "/fonts/*"])
+        .pipe(plumber())
+        .pipe(gulp.dest('./publish/css/fonts'));
 });
 
 gulp.task('image', () => {
@@ -81,7 +88,7 @@ gulp.task("server", () => {
     });
 });
 
-gulp.task("build", ['sass', 'js', 'image', 'haml'])
+gulp.task("build", ['sass', 'js', 'image', 'haml', 'slick'])
 
 gulp.task("develop", ['server'], () => {
     gulp.watch("js/**/*.js", ["js", "reload"]);
