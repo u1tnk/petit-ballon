@@ -23,8 +23,7 @@ import image from "gulp-image"
 
 let config = JSON.parse(fs.readFileSync('/Users/yuichi/.aws/u1tnk_s3.json'));
 // require('hoge')(args)が書けないようなので
-import s3module from 'gulp-s3-upload'
-let s3 = s3module(config)
+import awspublish from 'gulp-awspublish'
 
 import handleErrors from "./handle-errors.js";
 
@@ -91,20 +90,25 @@ gulp.task("develop", ['server'], () => {
     gulp.watch('./images/**/*.+(jpg|jpeg|JPG|png|PNG|gif|GIF)', ["image", "reload"]);
 });
 
-gulp.task("deploy-staging", ['build'], function() {
+function deploy(bucket) {
+  config['region'] = 'ap-northeast-1'
+  config['params'] = { "Bucket": bucket }
+  let publisher = awspublish.create(config, {
+      cacheFile: './cache'
+  })
+  let headers = {
+    'Cache-Control': 'max-age=315360000, no-transform, public'
+  }
   gulp.src(["./publish/**", "!./publish/**/.*"])
-    .pipe(s3({
-      Bucket: 'staging.petit-ballon.com', // ドットが入ってるので自動で上がらない…
-      ACL: 'public-read',
-    }))
-  ;
-});
+    .pipe(publisher.publish(headers))
+    .pipe(publisher.cache())
+    .pipe(awspublish.reporter())
+}
+
+gulp.task("deploy-staging", ['build'], function() {
+    deploy('staging.petit-ballon.com')
+})
 
 gulp.task("deploy", ['build'], function() {
-  gulp.src(["./publish/**", "!./publish/**/.*"])
-    .pipe(s3({
-       Bucket: 'petit-ballon.com', // ドットが入ってるので自動で上がらない
-      ACL: 'public-read',
-    }))
-  ;
+    deploy('petit-ballon.com')
 });
