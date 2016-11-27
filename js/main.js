@@ -7,6 +7,7 @@ import slick from 'slick-carousel-browserify'
         slick($('.detail-carousel'), {
             dots: true,
             arrows: true,
+            accessibility: true,
         })
    });
 })();

@@ -13,8 +13,9 @@
     %script{src: "js/bundle.js"}/
   %body
     .container
-      %header.header
-        %h1.site-title petit baloon
+      %header.site-title-header
+        %a{href: "/"}
+          %h1.site-title petit ballon
       %section#news.news
         %h2.heading NEWS
         %ul.news-list
@@ -33,17 +34,19 @@
                   %p.item-text
                     lecrin
           .item-box
-            %img.item-image{alt: "papillon", src: "images/papillon.jpg"}/
-            .item-description
-              .item-description-inner
-                %p.item-text
-                  papillon
+            %a{href: "papillon.html"}
+              %img.item-image{alt: "papillon", src: "images/papillon.jpg"}/
+              .item-description
+                .item-description-inner
+                  %p.item-text
+                    papillon
           .item-box
-            %img.item-image{alt: "biscuit", src: "images/biscuit.jpg"}/
-            .item-description
-              .item-description-inner
-                %p.item-text
-                  biscuit
+            %a{href: "biscuit.html"}
+              %img.item-image{alt: "biscuit", src: "images/biscuit.jpg"}/
+              .item-description
+                .item-description-inner
+                  %p.item-text
+                    biscuit
           .item-box
             %img.item-image{alt: "carton", src: "images/carton.jpg"}/
             .item-description
@@ -57,4 +60,4 @@
                 %p.item-text
                   coussin
       %footer.footer
-        ©petit baloon
+        ©petit ballon

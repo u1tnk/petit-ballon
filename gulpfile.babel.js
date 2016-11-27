@@ -61,7 +61,7 @@ gulp.task('slick', () => {
 });
 
 gulp.task('image', () => {
-    gulp.src('./images/**/*.+(jpg|jpeg|JPG|png|PNG|gif|GIF)')
+    gulp.src('./images/**/*.+(jpg|jpeg|JPG|png|PNG|gif|GIF|svg)')
         .pipe(plumber())
         .pipe(image({
             pngquant: true,
