@@ -8,42 +8,12 @@ $color_5: rgba(255, 255, 255, 0.6);
 $font-family_1: Raleway, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 
 @charset "UTF-8";
-/* --------------------------------
- * base
- * -------------------------------- */
-/* --------------------------------
- * parts
- * -------------------------------- */
-/* --------------------------------
- * header
- * -------------------------------- */
-/* --------------------------------
- * about
- * -------------------------------- */
-/* --------------------------------
- * items
- * -------------------------------- */
-/* --------------------------------
- * skills
- * -------------------------------- */
-/* --------------------------------
- * contact
- * -------------------------------- */
-/* --------------------------------
- * footer
- * -------------------------------- */
-/* --------------------------------
- * smart phone
- * -------------------------------- */
-/* --- header --- */
-/* --- about --- */
-/* --- items --- */
-/* --- skills --- */
-/* --- contact --- */
 html {
   font-size: 62.5%;
 }
 body {
+  margin: 0 auto;
+  max-width: 480px;
   background-color: $color_bg;
   color: $color_font;
   text-align: center;
@@ -83,7 +53,7 @@ header.header{
   position: relative;
   display: inline-block;
   margin: 30px 0 15px;
-  padding-bottom: 15px;
+  kpadding-bottom: 15px;
   letter-spacing: 2px;
   font-size: 4rem;
   &::after {
@@ -99,20 +69,24 @@ header.header{
   display: flex;
   flex: 0 0 auto;
   flex-direction: column;
-  padding: 170px 30px 80px;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 500px;
+  height: 300px;
   background: url("../images/header_bg.jpg") no-repeat center center;
+  background-size: cover;
   margin: 0 auto;
   overflow: hidden;
   a:link, a:visited {
     color: $color_bg;
   }
+  img.title {
+    width: 100%;
+  }
 //   background-attachment: fixed;
-
 }
 .site-title {
-  font-size: 7.6rem;
+  font-size: 5rem;
   margin: 30px;
 }
 .item-title {
@@ -135,7 +109,7 @@ header.header{
 }
 .news-list {
   margin: 30px auto;
-  width: 600px;
+  width: 100%;
   li {
     text-align: left;
     line-height: 2;
