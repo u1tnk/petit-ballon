@@ -42,9 +42,13 @@ header.header{
   .logo {
     font-size: 2rem;
     vertical-align: middle;
-    img {
+    img.logo {
       width: 25px;
       height: 25px;
+      vertical-align: middle;
+    }
+    img.title {
+      width: 150px;
       vertical-align: middle;
     }
   }
@@ -160,6 +164,7 @@ header.header{
   max-width: 100%;
 
   img {
+    width: 480px;
     margin: 0px;
   }
 
